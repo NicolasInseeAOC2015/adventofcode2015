@@ -31,15 +31,31 @@ public class Day1 {
 		int carburantTotal=0;
 
 		for (String masse : masses) {
-			int masseEntiere=Integer.parseInt(masse);
-			int carburantDeLaMasse=calculerCarburant(masseEntiere);
-			carburantTotal+=carburantDeLaMasse;
+			carburantTotal =carburantTotal + carburantDuneMasseAvecLesCarbAdditionnels(masse);
 
 		}
 
 
 		return carburantTotal;
 
+	}
+
+
+	
+	
+	protected static int carburantDuneMasseAvecLesCarbAdditionnels(String masse) {
+		int masseEntiere=Integer.parseInt(masse);
+		int sommeDesCarburantsDuneMasse=0;
+		int carburantDeLaMasse=calculerCarburant(masseEntiere);
+		
+		while (carburantDeLaMasse > 0) {
+			sommeDesCarburantsDuneMasse+=carburantDeLaMasse;
+			carburantDeLaMasse=calculerCarburant(carburantDeLaMasse);
+			
+			
+		}
+		 
+		return sommeDesCarburantsDuneMasse;
 	}
 
 	private static int calculerCarburant(int masseEntiere) {
