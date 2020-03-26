@@ -1,4 +1,4 @@
-package aoc2015;
+package aoc2019;
 
 public class HelloWorld {
 
